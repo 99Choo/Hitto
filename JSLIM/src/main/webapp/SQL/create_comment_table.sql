@@ -1,11 +1,11 @@
-CREATE TABLE hitto (
-    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50),
-    userid VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(100) NOT NULL,
-    birth DATE NOT NULL,
-    phone VARCHAR(20) NOT NULL,
-    team VARCHAR(50),
-    email VARCHAR(100),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE comment (
+    id INT AUTO_INCREMENT PRIMARY KEY,          -- 댓글 고유 ID
+    post_id INT NOT NULL,                       -- 게시글 ID
+    author VARCHAR(50) NOT NULL,                -- 유저 아이디
+    writer_name VARCHAR(50) NOT NULL,           -- 작성자 이름
+    content TEXT NOT NULL,                      -- 댓글 내용
+    regdate DATETIME DEFAULT CURRENT_TIMESTAMP, -- 작성일
+    parent_id INT DEFAULT NULL,                 -- 부모 댓글 ID (NULL이면 일반 댓글)
+
+    FOREIGN KEY (parent_id) REFERENCES comment(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

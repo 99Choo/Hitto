@@ -1,25 +1,13 @@
-<%
-/* ======================================================
- * 파일 명   : index.jsp
- * 작성자    : 임선우, 권법진, 추상헌
- * 작성일자  : 2025-06-23
- * 설명      : HittoStore의 메인 페이지로,
- *             로그인 상태 표시, 팀 로고 출력,
- *             상단 메뉴, 배너, 카테고리, 베스트 상품,
- *             후기, 푸터 정보 등을 포함한 전체 홈 UI 구성 페이지
- ====================================================== */
- %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page session="true" %>
 <%@ page import="model.UserDAO" %>
 <%@ page import="model.UserDTO" %>
 <%
-  //세션 정보로 사용자 및 팀 정보 조회
   String userName = (String) session.getAttribute("userName");
   String userId = (String) session.getAttribute("userId");
   String team = (String) session.getAttribute("team");
   String teamName = "";
-  String logoFile = "";
+  String logoFile = "";  // ✅ 팀 로고 파일명 저장용
   
   if (userId != null) {
        UserDAO dao = new UserDAO();
@@ -46,7 +34,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<!-- 메타 및 스타일, 외부 아이콘, 폰트, 스크립트 링크 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HittoStore - 야구용품 전문 쇼핑몰</title>
@@ -61,7 +48,6 @@
   <script defer src="js/cart-functions.js"></script>
 </head>
 <body>
-  <!-- 상단 메뉴바 (로그인 상태, 고객센터 등 표시) -->
   <div class="top-bar">
     <div class="container">
       <div class="top-menu-left">
@@ -88,7 +74,7 @@
 
        </div>
      </div>
-  <!-- 메인 메뉴 (카테고리 네비게이션) -->
+  <!-- 메인 메뉴 -->
   <nav class="main-nav">
     <div class="container">
       <ul class="nav-menu">
@@ -113,7 +99,7 @@
     </div>
   </nav>
 
-  <!-- 헤더: 로고 + 검색창(구현X) + 아이콘 링크 -->
+  <!-- 헤더 (로고 및 검색) -->
   <header class="main-header">
     <div class="container">
       <div class="logo">
@@ -136,7 +122,7 @@
     </div>
   </header>
 
-  <!-- 메인 배너 (슬라이더 형태의 광고 배너) -->
+  <!-- 메인 배너 (슬라이드) -->
   <section class="main-banner no-padding">
     <div class="banner-slider">
       <!-- 배너 1: Wilson A1500 -->
@@ -213,12 +199,12 @@
     </div>
   </section>
 
-  <!-- 바로가기 아이콘 (카테고리별 링크) -->
+  <!-- 바로가기 아이콘 -->
   <section class="quick-links">
     <div class="container">
       <div class="quick-links-wrapper" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px;">
         <div class="quick-link-item">
-          <a href="category/category.html?type=glove">
+          <a href="category/category.jsp?type=glove">
             <div class="icon-container">
               <i class="fas fa-baseball"></i>
             </div>
@@ -226,7 +212,7 @@
           </a>
         </div>
         <div class="quick-link-item">
-          <a href="category/category.html?type=bat">
+          <a href="category/category.jsp?type=bat">
             <div class="icon-container">
               <img src="images/baseball-bat.svg" alt="야구 배트 아이콘">
             </div>
@@ -234,7 +220,7 @@
           </a>
         </div>
         <div class="quick-link-item">
-          <a href="category/category.html?type=ball">
+          <a href="category/category.jsp?type=ball">
             <div class="icon-container">
               <i class="fas fa-baseball-ball"></i>
             </div>
@@ -242,7 +228,7 @@
           </a>
         </div>
         <div class="quick-link-item">
-          <a href="category/category.html?type=clothing">
+          <a href="category/category.jsp?type=clothing">
             <div class="icon-container">
               <i class="fas fa-tshirt"></i>
             </div>
@@ -250,7 +236,7 @@
           </a>
         </div>
         <div class="quick-link-item">
-          <a href="category/category.html?type=shoes">
+          <a href="category/category.jsp?type=shoes">
             <div class="icon-container">
               <i class="fas fa-running"></i>
             </div>
@@ -258,7 +244,7 @@
           </a>
         </div>
         <div class="quick-link-item">
-          <a href="category/category.html?type=equipment">
+          <a href="category/category.jsp?type=equipment">
             <div class="icon-container">
               <i class="fas fa-shield-alt"></i>
             </div>
@@ -269,7 +255,7 @@
     </div>
   </section>
 
-  <!-- 카테고리별 베스트 상품 탭 섹션 -->
+  <!-- 카테고리별 베스트 섹션 -->
   <section class="category-best-section">
     <div class="container">
       <div class="section-header">
@@ -334,7 +320,7 @@
     </div>
   </section>
   
-  <!-- 이벤트 & 프로모션 섹션 -->
+  <!-- 이벤트 프로모션 섹션 -->
   <section class="event-promotions-section">
     <div class="container">
       <div class="section-header">
@@ -434,7 +420,7 @@
     </div>
   </section>
   
-  <!-- MLB 공식 보호대 영상 및 링크 -->
+  <!-- MLB 공식보호대 지품 섹션 -->
   <section class="mlb-products-section">
     <div class="container">
       <div class="section-header">
@@ -556,7 +542,7 @@
     </div>
   </section>
 
-  <!-- 푸터: 회사 정보, 계좌 안내, 고객센터 정보 등 -->
+  <!-- 푸터 -->
   <footer class="main-footer">
     <div class="container">
       <div class="footer-info-boxes">
@@ -628,18 +614,15 @@
       </div>
     </div>
   </footer>
-  
   <!-- 모달 컨테이너 -->
   <div id="modal-container"></div>
-  
-  <!-- 세션 정보 자바스크립트 전역변수로 전달 -->
+
    <script>
      window.sessionUserName = "<%= userName != null ? userName : "" %>";
      window.sessionUserId = "<%= userId != null ? userId : "" %>";
      window.sessionTeam = "<%= team != null ? team : "" %>";
    </script>
-   
-  <!-- 공통 스크립트 로드 -->
+<!-- 필요한 스크립트 순서대로 로드 -->
 <script src="js/wishlist-functions.js"></script>
 <script src="js/cart-functions.js"></script>
 <script src="js/common.js"></script>

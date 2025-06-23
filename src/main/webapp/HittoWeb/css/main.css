@@ -1,0 +1,36 @@
+/* 토스트 메시지 스타일 */
+.toast-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 14px;
+  z-index: 9999;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  min-width: 200px;
+  max-width: 90%;
+}
+
+.toast-message.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* 위시리스트 버튼 호버 효과 */
+.wishlist-btn:hover i, .wishlist-btn-bottom:hover i {
+  transform: scale(1.2);
+  transition: transform 0.2s ease;
+}
+
+/* 애니메이션 효과가 적용된 하트 아이콘 */
+.wishlist-btn i.fas, .wishlist-btn-bottom i.fas {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+

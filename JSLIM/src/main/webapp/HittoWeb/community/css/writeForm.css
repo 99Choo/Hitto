@@ -1,0 +1,635 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Noto Sans KR', '맑은 고딕', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f7f9fa;
+    padding: 0;
+}
+
+.main-header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.main-header .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 0 6px 0;
+}
+
+.main-header img {
+    height: 28px;
+}
+
+.main-header .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #222;
+    letter-spacing: -1px;
+}
+
+/* Form Styles */
+form {
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 40px 48px 32px 48px;
+}
+
+h2 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: #222;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid #e3e5e8;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f7f9fa;
+    margin-top: 4px;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+input[type="text"]:focus,
+select:focus {
+    outline: none;
+    border-color: #1ec800;
+    background: #fff;
+}
+
+textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.btn {
+    background: #1ec800;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 18px;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(30,200,0,0.07);
+}
+
+.btn:hover {
+    background: #16a100;
+}
+
+.title-input::placeholder {
+    color: #b5b5b5;
+}
+
+/* Editor Container */
+.editor-container {
+    position: relative;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.editor-toolbar {
+    background: #fff;
+    padding: 8px 16px;
+    border-bottom: 1px solid #f2f2f2;
+    display: flex;
+    gap: 4px;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.toolbar-button {
+    background: transparent;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 16px;
+    transition: all 0.15s;
+    padding: 0;
+}
+
+.toolbar-button:hover {
+    background: #f5f6f8;
+    color: #000;
+}
+
+.toolbar-button:active {
+    background: #e9ebee;
+}
+
+.toolbar-button b,
+.toolbar-button i,
+.toolbar-button u,
+.toolbar-button s {
+    pointer-events: none;
+}
+
+.toolbar-divider {
+    width: 1px;
+    height: 14px;
+    background: #e6e8eb;
+    margin: 0 4px;
+}
+
+.editor-area {
+    min-height: 500px;
+    padding: 24px;
+    outline: none;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    background: #fff;
+    border: none;
+}
+
+.editor-area:empty:before {
+    content: attr(placeholder);
+    color: #b5b5b5;
+    pointer-events: none;
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 24px;
+}
+
+/* Form Controls */
+.form-control {
+    border: 1px solid #e6e8eb;
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #36f;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(51, 102, 255, 0.1);
+}
+
+.category-group {
+    min-width: 150px;
+    margin-right: 10px;
+}
+
+/* Author Info */
+.author-info {
+    padding: 20px 24px;
+    border-top: 1px solid #f2f2f2;
+    background: #fafbfc;
+}
+
+/* Buttons */
+.btn-area {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 16px 24px;
+    background: #fafbfc;
+    border-top: 1px solid #f2f2f2;
+}
+
+.btn-cancel,
+.btn-submit {
+    padding: 0 16px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cancel {
+    background: #fff;
+    border: 1px solid #e6e8eb;
+    color: #555;
+}
+
+.btn-cancel:hover {
+    background: #f5f6f8;
+}
+
+.btn-submit {
+    background: #36f;
+    color: white;
+    border: none;
+}
+
+.btn-submit:hover {
+    background: #1e5feb;
+}
+
+/* Form Styles */
+.write-form {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.category-group {
+    max-width: 200px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Buttons */
+.btn-area {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-cancel,
+.btn-submit {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cancel {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.btn-submit {
+    background: #ff0000;
+    color: white;
+    border: none;
+}
+
+.btn-submit:hover {
+    background: #e60000;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Input Fields */
+.form-control {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #03c75a;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(3, 199, 90, 0.1);
+}
+
+/* Category Select */
+#category {
+    width: 200px;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Title Input */
+#title {
+    font-size: 24px;
+    font-weight: 700;
+    height: 60px;
+    border: none;
+    border-bottom: 2px solid #f0f0f0;
+    border-radius: 0;
+    padding: 0;
+}
+
+#title:focus {
+    border-bottom-color: #03c75a;
+    box-shadow: none;
+}
+
+/* Editor Toolbar */
+.editor-toolbar {
+    background: #f8f9fa;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px 4px 0 0;
+    margin-top: 20px;
+}
+
+.toolbar-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.toolbar-button {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #333;
+    font-size: 18px;
+    transition: background-color 0.2s;
+}
+
+.toolbar-button:hover {
+    background-color: #e9ecef;
+}
+
+/* Editor Area */
+.editor-area {
+    width: 100%;
+    min-height: 500px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    font-size: 16px;
+    line-height: 1.8;
+    outline: none;
+    resize: vertical;
+}
+
+/* Author Info */
+.author-info {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    padding: 20px 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.author-field {
+    flex: 1;
+}
+
+/* Buttons */
+.btn-area {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.btn-cancel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    height: 40px;
+    padding: 0 20px;
+    background: #f5f5f5;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    height: 40px;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #cc0000;
+}
+
+/* Readonly Inputs */
+.readonly-input {
+    background-color: #f9f9f9 !important;
+    color: #666 !important;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+    
+    .header {
+        padding: 12px 15px;
+    }
+    
+    .main-content {
+        padding: 0 15px 30px;
+    }
+    
+    .author-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    #category {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    form {
+        padding: 20px 8px 16px 8px;
+    }
+    #editor {
+        min-height: 250px;
+    }
+}
+
+/* --- 네이버 블로그 스타일 개선 --- */
+body {
+    background: #f7f9fa;
+}
+form {
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 40px 48px 32px 48px;
+}
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    color: #222;
+}
+.form-group {
+    margin-bottom: 24px;
+}
+label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+input[type="text"], select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e3e5e8;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f7f9fa;
+    margin-top: 4px;
+}
+input[type="text"]:focus, select:focus {
+    outline: none;
+    border-color: #1ec800;
+    background: #fff;
+}
+/* Quill 에디터 영역 */
+#editor {
+    background: #fff;
+    border-radius: 10px;
+    border: 1.5px solid #e3e5e8;
+    min-height: 400px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.ql-toolbar.ql-snow {
+    border-radius: 10px 10px 0 0;
+    border: 1.5px solid #e3e5e8;
+    background: #f7f9fa;
+}
+.ql-container.ql-snow {
+    border-radius: 0 0 10px 10px;
+    border: 1.5px solid #e3e5e8;
+    border-top: none;
+}
+.btn {
+    background: #1ec800;
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 12px;
+}
+.btn:hover {
+    background: #16a100;
+}
+@media (max-width: 900px) {
+    form {
+        padding: 20px 8px 16px 8px;
+    }
+    #editor {
+        min-height: 250px;
+    }
+}

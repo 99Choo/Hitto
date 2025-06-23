@@ -1,0 +1,425 @@
+/* 위시리스트 페이지 스타일 */
+.wishlist-main {
+    padding: 40px 0;
+    min-height: 600px;
+  }
+  
+  .page-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .page-title i {
+    color: #e74c3c;
+    margin-left: 8px;
+  }
+  
+  .page-desc {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  /* 빈 위시리스트 상태 */
+  .empty-wishlist {
+    text-align: center;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* 기본적으로 숨김, JS로 위시리스트가 비어있을 때 보이게 함 */
+    display: none;
+  }
+  
+  .empty-icon {
+    font-size: 60px;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .empty-message {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .go-shopping-btn {
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    text-decoration: none;
+  }
+  
+  .go-shopping-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  /* 위시리스트 상품 목록 */
+  .wishlist-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 30px;
+  }
+  
+  /* 위시리스트 아이템 스타일 */
+  .wishlist-item {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+  }
+  
+  .wishlist-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .item-remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+  }
+  
+  .remove-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .remove-btn:hover {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .item-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+  }
+  
+  .item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+  
+  .wishlist-item:hover .item-image img {
+    transform: scale(1.05);
+  }
+  
+  .add-cart-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .wishlist-item:hover .add-cart-overlay {
+    transform: translateY(0);
+  }
+  
+  .add-to-cart-btn {
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .item-info {
+    padding: 16px;
+  }
+  
+  .item-brand {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 8px;
+  }
+  
+  .item-name {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    height: 44px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  
+  .item-price {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .discount {
+    color: #e74c3c;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  
+  .price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .original-price {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+  }
+  
+  /* 위시리스트 컨트롤 버튼 */
+  .wishlist-controls {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .select-control,
+  .add-cart-control {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .select-all-btn,
+  .remove-selected-btn,
+  .add-selected-to-cart,
+  .add-all-to-cart {
+    padding: 10px 16px;
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .select-all-btn:hover,
+  .remove-selected-btn:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .add-selected-to-cart,
+  .add-all-to-cart {
+    background-color: #3498db;
+    color: white;
+    border-color: #3498db;
+  }
+  
+  .add-selected-to-cart:hover,
+  .add-all-to-cart:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+  
+  /* 추천 상품 섹션 */
+  .recommended-products {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #eee;
+  }
+  
+  .recommended-products .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .recommended-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .recommended-item {
+    border: 1px solid #eee;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .recommended-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recommended-item .item-image {
+    height: 180px;
+  }
+  
+  .wishlist-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .wishlist-icon:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #e74c3c;
+  }
+  
+  .recommended-item .item-info {
+    padding: 12px;
+  }
+  
+  .recommended-item .item-brand {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+  
+  .recommended-item .item-name {
+    font-size: 14px;
+    height: 40px;
+    margin-bottom: 8px;
+  }
+  
+  .recommended-item .item-price {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  
+  /* 반응형 스타일 */
+  @media (max-width: 992px) {
+    .wishlist-items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .recommended-items {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .wishlist-controls {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .recommended-items {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .select-control,
+    .add-cart-control {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .select-all-btn,
+    .remove-selected-btn,
+    .add-selected-to-cart,
+    .add-all-to-cart {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .wishlist-items {
+      grid-template-columns: 1fr;
+    }
+    
+    .recommended-items {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* 체크박스 스타일 */
+  .select-all-btn i {
+    margin-right: 5px;
+  }
+  
+  /* 아이템 선택 스타일 */
+  .wishlist-item.selected {
+    border-color: #3498db;
+  }
+  
+  .wishlist-item.selected::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #3498db;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 3;
+  }
+  
+  .wishlist-item.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 4;
+    font-size: 12px;
+  } 

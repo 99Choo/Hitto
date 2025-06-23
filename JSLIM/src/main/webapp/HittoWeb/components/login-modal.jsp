@@ -1,0 +1,34 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
+<%@ page session="true" %>
+<!-- 로그인 모달 -->
+<div class="login-modal-overlay">
+  <div class="login-modal">
+    <div class="login-modal-header">
+      <h2>로그인</h2>
+      <button class="close-btn" id="close-modal"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="login-modal-body">
+      <form id="loginForm">
+        <div class="input-group">
+          <input type="text" id="user-id" name="userId" placeholder="아이디">
+        </div>
+        <div class="input-group">
+          <input type="password" id="user-password" name="password" placeholder="비밀번호">
+        </div>
+        <div id="login-error-message"></div>
+        <button type="submit" class="login-submit-btn">로그인</button>
+        <div class="login-links">
+          <a href="/JSLIM/HittoWeb/signup/signup.jsp" class="signup-link">회원가입</a>
+          <a href="#">아이디/비밀번호 찾기</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 모달 컨테이너 -->
+<div id="modal-container"></div>
+
+<!-- CSS와 JS 파일 연결 -->
+<link rel="stylesheet" href="/JSLIM/HittoWeb/components/login-modal.css">
+<script src="/JSLIM/HittoWeb/components/login-modal.js"></script>
